@@ -53,6 +53,9 @@ build() {
 
   # build
   JEKYLL_ENV=production bundle exec jekyll b -d "$SITE_DIR$_baseurl" --config "$_config"
+  ls -lah
+  echo "$SITE_DIR$_baseurl/index.html"
+  sed -i '/<div class="footer-right">/,/<\/div>/c\' "$SITE_DIR$_baseurl/index.html"
 }
 
 test() {
