@@ -22,9 +22,12 @@ jobs:
         run: |
           mkdir .jekyll-cache _site
           make build
-          [ ! -f CNAME ] || mv CNAME _site
-          ls -lah
+
+      - name: Add Metadata
+        run: |
+          [ ! -f CNAME ] || sudo mv CNAME _site
           sudo touch _site/.nojekyll
+          sudo sed -i '/<div class="footer-right">/,/<\/div>/c\' _site/index.html
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
