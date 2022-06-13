@@ -55,9 +55,8 @@ jobs:
         with:
           name: generated-site
 
-      - name: List files
-        run: ls -lah
-
+      # Commit the generated site to the gh-pages branch
+      # This is where GitHub is configured to serve from
       - name: Deploy to pages branch
         run: |
           git config --global user.name "GitHub Actions"
