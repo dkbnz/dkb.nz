@@ -11,4 +11,4 @@ build:
 	docker run --rm \
 	--volume="$$PWD:/srv/jekyll:Z" \
 	jekyll/jekyll:$(JEKYLL_VERSION) \
-	jekyll build
+	jekyll build --trace

@@ -19,7 +19,12 @@ jobs:
           fetch-depth: 0 # for posts's lastmod
 
       - name: Build
-        run: mkdir _site && echo "hello" > _site/helloworld.txt # make build
+        run: |
+          mkdir .jekyll-cache _site
+          make build
+          [ ! -f CNAME ] || mv CNAME _site
+          ls -lah
+          sudo touch _site/.nojekyll
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
@@ -50,7 +55,7 @@ jobs:
       - name: List files
         run: ls -lah
 
-      - name: Deploy to Pages
+      - name: Deploy to pages branch
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
