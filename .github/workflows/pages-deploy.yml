@@ -49,3 +49,12 @@ jobs:
 
       - name: List files
         run: ls -lah
+
+      - name: Deploy to Pages
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git update-ref -d HEAD
+          git add -A
+          git commit -m "[CI/CD] Site built from commit ${GITHUB_SHA:0:7}"
+          git push -f origin gh-pages
