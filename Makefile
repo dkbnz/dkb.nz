@@ -10,5 +10,6 @@ serve:
 build:
 	docker run --rm \
 	--volume="$$PWD:/srv/jekyll:Z" \
+	--env JEKYLL_ENV=production \
 	jekyll/jekyll:$(JEKYLL_VERSION) \
 	jekyll build --trace

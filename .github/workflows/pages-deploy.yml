@@ -25,9 +25,7 @@ jobs:
 
       - name: Add Metadata
         run: |
-          [ ! -f CNAME ] || sudo mv CNAME _site
-          sudo touch _site/.nojekyll
-          sudo sed -i '/<div class="footer-right">/,/<\/div>/c\' _site/index.html
+          sudo find _site -type f -name "*.html" -exec perl -i -0777 -pe 's/<div class="footer-right">.*?<\/div>//g' {} +
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3

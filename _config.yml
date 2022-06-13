@@ -183,12 +183,15 @@ compress_html:
 exclude:
   - "*.gem"
   - "*.gemspec"
-  - tools
   - README.md
   - LICENSE
+  - Makefile
   - gulpfile.js
   - node_modules
   - package*.json
+
+include:
+  - .nojekyll
 
 jekyll-archives:
   enabled: [categories, tags]
