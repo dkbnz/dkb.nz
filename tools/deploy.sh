@@ -103,6 +103,7 @@ flush() {
   mv "$_backup_dir"/* .
   [[ -f ".nojekyll" ]] || echo "" >".nojekyll"
 }
+s
 
 deploy() {
   git config --global user.name "GitHub Actions"

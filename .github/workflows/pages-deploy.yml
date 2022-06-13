@@ -1,4 +1,4 @@
-name: "Automatic build"
+name: "Jekyll Build & Deploy"
 on:
   push:
     branches:
@@ -9,14 +9,43 @@ on:
       - LICENSE
 
 jobs:
-  continuous-delivery:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # for posts's lastmod
 
       - name: Build
-        run: make build
+        run: mkdir _site && echo "hello" > _site/helloworld.txt # make build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: generated-site
+          path: |
+            _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: "gh-pages"
+
+      # Delete all checked out files except .git folder
+      - name: Remove Previous Site
+        run: find . -mindepth 1 ! -regex '^./.git\(/.*\)?' -delete
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: generated-site
+
+      - name: List files
+        run: ls -lah
