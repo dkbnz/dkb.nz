@@ -5,9 +5,10 @@ https://dkb.nz/
 ## TODO
 
 - [x] Get favicon setup
-- [ ] Copy "about" across
+- [x] Copy "about" across
+- [x] Add links to email/socials
 - [ ] Copy posts across
-- [ ] Add links to email/socials
 - [ ] Update google analytics
+- [ ] Add & update map
 - [ ] Redirect dougbarrett.nz
 - [ ] Decommission other sites
