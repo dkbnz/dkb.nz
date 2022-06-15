@@ -23,10 +23,6 @@ jobs:
           mkdir .jekyll-cache _site
           make build
 
-      - name: Add Metadata
-        run: |
-          sudo find _site -type f -name "*.html" -exec perl -i -0777 -pe 's/<div class="footer-right">.*?<\/div>//g' {} +
-
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:

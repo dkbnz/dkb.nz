@@ -12,3 +12,12 @@ https://dkb.nz/
 - [ ] Add & update map
 - [ ] Redirect dougbarrett.nz
 - [ ] Decommission other sites
+
+## Development
+
+Requirements:
+
+- Docker
+- Make
+
+Run `make serve` and access `locahost:4000` in your webrowser.
