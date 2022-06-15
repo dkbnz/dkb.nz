@@ -40,9 +40,11 @@ jobs:
         with:
           ref: "gh-pages"
 
-      # Delete all checked out files except .git folder
+      # Delete all checked out files except .git folder & CNAME (for custom domains)
       - name: Remove Previous Site
-        run: find . -mindepth 1 ! -regex '^./.git\(/.*\)?' -delete
+        run: |
+          shopt -s extglob
+          rm -rf !(.git|CNAME)
 
       - name: Download Artifacts
         uses: actions/download-artifact@v2
