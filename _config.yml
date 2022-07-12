@@ -204,3 +204,5 @@ jekyll-archives:
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-paginate
+  - jekyll-archives
