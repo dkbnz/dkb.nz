@@ -1,7 +1,7 @@
 ---
 title: Work at Xero
 icon: fas fa-building
-order: 5
+order: 4
 ---
 
 Looking for a change of pace? Come join me at Xero and help make life easier for small business owners in over 180 countries.
