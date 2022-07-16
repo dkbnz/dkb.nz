@@ -1,10 +1,7 @@
 #  The contact options.
-
-- type: github
-  icon: "fab fa-github"
-- type: linkedin
-  icon: "fab fa-linkedin"
-  url: https://linkedin.com/in/dkbnz
+- type: linktree
+  icon: "fas fa-link"
+  url: "https://linktr.ee/dkbnz"
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
